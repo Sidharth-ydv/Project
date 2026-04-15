@@ -1,0 +1,49 @@
+2026-04-14 20:06:04 | main.train | INFO | === MODE: TRAIN ===
+2026-04-14 20:06:04 | main.train | INFO | Generating 200 synthetic images...
+2026-04-14 20:06:04 | src.preprocessing | INFO | MedicalImagePreprocessor initialised | size=(128, 128) | norm=minmax | aug=True
+2026-04-14 20:06:04 | src.preprocessing | INFO | Generating 68 synthetic 'normal' images...
+2026-04-14 20:06:04 | src.preprocessing | INFO | Generating 66 synthetic 'tumor' images...
+2026-04-14 20:06:04 | src.preprocessing | INFO | Generating 66 synthetic 'fracture' images...
+2026-04-14 20:06:05 | src.preprocessing | INFO | Synthetic dataset created: 200 images | classes: {'normal': 68, 'tumor': 66, 'fracture': 66}
+2026-04-14 20:06:05 | main.train | INFO | Dataset shape: (200, 128, 128) | Labels: {np.int32(0): np.int64(68), np.int32(1): np.int64(66), np.int32(2): np.int64(66)}
+2026-04-14 20:06:05 | src.model | INFO | MedicalCNNModel configured: input=(128, 128, 1) | classes=3 | labels=['normal', 'tumor', 'fracture']
+2026-04-14 20:06:08 | src.model | INFO | TensorFlow 2.21.0 loaded.
+2026-04-14 20:06:08 | src.model | INFO | CNN model built | params=653,443
+2026-04-14 20:06:08 | src.model | INFO | Model compiled | lr=0.000100
+2026-04-14 20:06:08 | src.model | INFO | Starting training | samples=160 | epochs=50 | batch=32 | save=C:\Users\sidha\Downloads\project projexa barin\medical_anomaly_detection\models\best_model.keras
+2026-04-14 20:06:30 | src.model | INFO | Training complete.
+2026-04-14 20:06:30 | main.train | INFO | CNN training complete. Evaluating on test set...
+2026-04-14 20:06:31 | src.model | INFO | Evaluation | acc=0.350 | auc=0.512 | precision=0.000 | recall=0.000
+2026-04-14 20:06:31 | main.train | INFO | Test accuracy: 0.350 | AUC: 0.512
+2026-04-14 20:06:31 | main.train | INFO | Training autoencoder on 54 normal images...
+2026-04-14 20:06:31 | src.model | INFO | Autoencoder built | encoder params=4,287,104 | total params=8,754,305
+2026-04-14 20:06:31 | src.model | INFO | Autoencoder compiled.
+2026-04-14 20:07:03 | main.train | INFO | Autoencoder training complete.
+2026-04-14 20:07:03 | main.train | INFO | === TRAINING COMPLETE ===
+2026-04-14 20:07:03 | main.train | INFO | CNN model saved: models\best_model.keras
+2026-04-14 20:07:03 | main.train | INFO | Autoencoder saved: models\autoencoder.keras
+2026-04-14 23:50:12 | main.train | INFO | === MODE: TRAIN ===
+2026-04-14 23:50:12 | main.train | INFO | Generating 1500 synthetic images...
+2026-04-14 23:50:12 | src.preprocessing | INFO | MedicalImagePreprocessor initialised | size=(128, 128) | norm=minmax | aug=True
+2026-04-14 23:50:12 | src.preprocessing | INFO | Generating 500 synthetic 'normal' images...
+2026-04-14 23:50:13 | src.preprocessing | INFO | Generating 500 synthetic 'tumor' images...
+2026-04-14 23:50:14 | src.preprocessing | INFO | Generating 500 synthetic 'fracture' images...
+2026-04-14 23:50:16 | src.preprocessing | INFO | Synthetic dataset created: 1500 images | classes: {'normal': 500, 'tumor': 500, 'fracture': 500}
+2026-04-14 23:50:16 | main.train | INFO | Dataset shape: (1500, 128, 128) | Labels: {np.int32(0): np.int64(500), np.int32(1): np.int64(500), np.int32(2): np.int64(500)}
+2026-04-14 23:50:16 | src.model | INFO | MedicalCNNModel configured: input=(128, 128, 1) | classes=3 | labels=['normal', 'tumor', 'fracture']
+2026-04-14 23:50:24 | src.model | INFO | TensorFlow 2.21.0 loaded.
+2026-04-14 23:50:24 | src.model | INFO | ResNet-style CNN built | params=5,018,787
+2026-04-14 23:50:24 | src.model | INFO | Auto class weights: {0: 1.0, 1: 1.0, 2: 1.0}
+2026-04-14 23:50:24 | src.model | INFO | Model compiled | lr=0.000300 | label_smoothing=0.05
+2026-04-14 23:50:24 | src.model | INFO | Starting training | samples=1200 | epochs=100 | batch=16 | save=C:\Users\sidha\Downloads\project projexa barin\medical_anomaly_detection\models\best_model.keras
+2026-04-15 00:09:19 | src.model | INFO | Training complete.
+2026-04-15 00:09:19 | main.train | INFO | CNN training complete. Evaluating on test set...
+2026-04-15 00:09:24 | src.model | INFO | Evaluation | acc=1.000 | auc=1.000 | precision=1.000 | recall=0.997
+2026-04-15 00:09:24 | main.train | INFO | Test accuracy: 1.000 | AUC: 1.000
+2026-04-15 00:09:24 | main.train | INFO | Training autoencoder on 400 normal images...
+2026-04-15 00:09:24 | src.model | INFO | Autoencoder built | encoder params=4,287,104 | total params=8,754,305
+2026-04-15 00:09:24 | src.model | INFO | Autoencoder compiled.
+2026-04-15 00:11:23 | main.train | INFO | Autoencoder training complete.
+2026-04-15 00:11:23 | main.train | INFO | === TRAINING COMPLETE ===
+2026-04-15 00:11:23 | main.train | INFO | CNN model saved: models\best_model.keras
+2026-04-15 00:11:23 | main.train | INFO | Autoencoder saved: models\autoencoder.keras

@@ -1,0 +1,86 @@
+
+# ============================================================
+# Medical Anomaly Detection — Master Configuration File
+# ============================================================
+
+classes:
+  - normal
+  - tumor
+  - fracture
+
+model:
+  input_shape: [128, 128, 1]
+  num_classes: 3
+  architecture: cnn          # options: cnn | autoencoder | hybrid
+  dropout_rates:
+    dense1: 0.5
+    dense2: 0.3
+  filters: [32, 64, 128, 256]
+  dense_units: [512, 256]
+
+training:
+  epochs: 100
+  batch_size: 16
+  learning_rate: 0.0003
+  patience: 15              # EarlyStopping patience
+  validation_split: 0.2
+  lr_reduce_factor: 0.4
+  lr_reduce_patience: 5
+  min_lr: 0.000001
+
+preprocessing:
+  image_size: [128, 128]
+  normalization_method: minmax   # options: minmax | zscore
+  augmentation_enabled: true
+  augmentation:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation_range: 15           # degrees ±
+    brightness_range: [0.85, 1.15]
+  denoise:
+    gaussian_kernel: [5, 5]
+    gaussian_sigma: 1.0
+    median_kernel: 5
+  synthetic:
+    n_samples: 1500
+    image_size: [128, 128]
+    random_seed: 42
+
+features:
+  pca_components: 50
+  tsne_perplexity: 30
+  tsne_n_iter: 1000
+  umap_n_neighbors: 15
+  umap_min_dist: 0.1
+  feature_types_enabled:
+    texture: true
+    shape: true
+    intensity: true
+    frequency: true
+  glcm_distances: [1, 2]
+  glcm_angles: [0, 0.785, 1.571, 2.356]  # 0 45 90 135 degrees
+
+realtime:
+  queue_size: 100
+  n_workers: 4
+  anomaly_threshold: 0.5       # reconstruction error threshold
+  alert_confidence: 0.85
+  poll_interval_seconds: 0.5
+  max_queue_wait_seconds: 30
+
+paths:
+  data_dir: data/
+  raw_dir: data/raw/
+  processed_dir: data/processed/
+  sample_dir: data/sample/
+  model_save_path: models/best_model.keras
+  autoencoder_save_path: models/autoencoder.keras
+  output_dir: outputs/
+  log_dir: logs/
+  report_path: outputs/evaluation_report.pdf
+
+logging:
+  level: INFO
+  format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+  file: logs/app.log
